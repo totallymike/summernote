@@ -6,7 +6,7 @@
  * Copyright 2013-2014 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2014-12-23T20:10Z
+ * Date: 2015-01-05T14:22Z
  */
 (function (factory) {
   /* global define */
@@ -4814,10 +4814,12 @@
       var body = [];
 
       for (var i in keys) {
-        body.push(
-          '<div class="' + keyClass + 'key">' + keys[i].kbd + '</div>' +
-          '<div class="' + keyClass + 'name">' + keys[i].text + '</div>'
-          );
+        if (keys.hasOwnProperty(i)) {
+          body.push(
+            '<div class="' + keyClass + 'key">' + keys[i].kbd + '</div>' +
+            '<div class="' + keyClass + 'name">' + keys[i].text + '</div>'
+            );
+        }
       }
 
       return '<div class="note-shortcut-row row"><div class="' + keyClass + 'title col-xs-offset-6">' + title + '</div></div>' +
